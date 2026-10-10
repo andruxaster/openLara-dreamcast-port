@@ -1,16 +1,19 @@
-OPTIMISE = -ffast-math -mpretend-cmove -fno-stack-protector
+# -mno-fsca: GCC 15 (sh-elf) ICE in gen_reg_rtx when expanding fsca (TrapLavaEmitter::update)
+OPTIMISE = -ffast-math -mpretend-cmove -fno-stack-protector -mno-fsca
 
 DEBUG = 0
 
 INCLUDES = ../.. ../dc
 
-CFLAGS = $(addprefix -I,$(INCLUDES)) $(OPTIMISE) -Wno-format -Wno-unused-variable -Wno-unused-but-set-variable -Wno-unused-value -Wno-sign-compare
-CXXFLAGS = $(CFLAGS) -fno-use-cxa-atexit -fno-exceptions -fno-rtti
+COMMONFLAGS = $(addprefix -I,$(INCLUDES)) $(OPTIMISE) -Wno-format -Wno-unused-variable -Wno-unused-but-set-variable -Wno-unused-value -Wno-sign-compare
+# GCC 15 defaults to C23; this C code is written for gnu17
+CFLAGS = $(COMMONFLAGS) -std=gnu17
+CXXFLAGS = $(COMMONFLAGS) -fno-use-cxa-atexit -fno-exceptions -fno-rtti
 
 TARGET := oldc-debug.elf
 
 ifeq ($(DEBUG), 0)
-CFLAGS += -DNOSERIAL
+COMMONFLAGS += -DNOSERIAL
 TARGET := oldc-release.elf
 endif
 

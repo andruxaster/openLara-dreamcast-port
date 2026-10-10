@@ -69,7 +69,7 @@ void primitive_buffer_flush(void)
 	//qacr[0] = qacr[1] = 0x10;
 
 #ifndef PRIM_USE_DMA
-    unsigned int *d = sq_lock(PVR_TA_INPUT);
+    unsigned int *d = (unsigned int *)sq_lock((void *)PVR_TA_INPUT);
 #endif
 
 	/* Direct list end */
@@ -149,7 +149,7 @@ int primitive_header(void *header, int size)
 	}
 
 	/* Set buffer addr */
-	d = sq_lock(buffer_offset[current_type]);
+	d = (unsigned int *)sq_lock((void *)buffer_offset[current_type]);
 	buffer_offset[current_type] += size >> 2;
 
 	/* Write data */

@@ -173,7 +173,7 @@ void draw_poly_strf(pvr_context *hdr, float x1, float y1, float a, float r, floa
   }
   
   //void *sq = sqPrepare((void*)PVR_TA_INPUT);
-  void *sq = sq_lock(PVR_TA_INPUT);
+  void *sq = sq_lock((void *)PVR_TA_INPUT);
   sqCopy32(sq, hdr);
   
   s = str;
@@ -249,7 +249,7 @@ typedef struct {
 static void draw_banner(pvr_context *hdr, int w, int h, bgcolor *bg)
 {
     //void *sq = sqPrepare((void*)PVR_TA_INPUT);
-    void *sq = sq_lock(PVR_TA_INPUT);
+    void *sq = sq_lock((void *)PVR_TA_INPUT);
     sqCopy32(sq, hdr);
 
     float x1,y1;

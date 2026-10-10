@@ -125,7 +125,7 @@ void pfSampSave(const char *fname, int append)
 	if (of != NULL) {
 		int i;
 		for(i = 0; i < profile_store_pos; i++) {
-			uint32 addr = (profile_store[i].addr[2] << 16) | (profile_store[i].addr[1] << 8) | profile_store[i].addr[0];
+			uint32_t addr = (profile_store[i].addr[2] << 16) | (profile_store[i].addr[1] << 8) | profile_store[i].addr[0];
 			written += fprintf(of,"8C%06X\n",addr);
 		}
 		fclose(of);

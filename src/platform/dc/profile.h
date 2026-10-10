@@ -19,7 +19,7 @@ extern "C" {
 	p = pfEnd(p);	//p now contains time elapsed in microseconds
 */
 
-typedef uint64 pfMicroseconds;	//Time in microseconds
+typedef uint64_t pfMicroseconds;	//Time in microseconds
 
 /*
 	Returns the start time of measurement period
@@ -60,7 +60,7 @@ float pfCycLoop(pfMicroseconds time, int loops);
 #define PMCR_PMST       0x00004000
 #define PMCR_PMENABLE   0x00008000
 
-typedef uint64 pfCounter;	//Number of events
+typedef uint64_t pfCounter;	//Number of events
 
 typedef enum {
 	PE_OC_READ_ACCESS = 0x1,

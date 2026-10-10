@@ -265,7 +265,13 @@ void osReadSlot(Stream *stream) {
     return;
   }
 
-  vmu_pkg_parse(buf, &pkg);
+  if (vmu_pkg_parse(buf, size, &pkg) < 0) {
+    free(buf);
+    if (stream->callback)
+      stream->callback(NULL, stream->userData);
+    delete stream;
+    return;
+  }
   
   data = (char *) pkg.data;
   len = pkg.data_len;
