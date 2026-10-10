@@ -1,5 +1,5 @@
 # OpenLara Dreamcast
-<p align="center"><img src="./screenshots/game.png"></p>
+<p align="center"><img src="./dreamcast.png"></p>
 
 This is a port of [OpenLara](https://github.com/XProger/OpenLara) for the Sega Dreamcast.
 
@@ -19,8 +19,23 @@ xcopy D:\DATA\ C:\DATA\
 ```
   DATA/*.PHD
   DELDATA/*.RAW
-```
+  AUDIO/1/*.WAV
 
+Soundtrack files: 
+TRACK_02.WAV, 
+TRACK_05.WAV, 
+TRACK_22.WAV, 
+TRACK_23.WAV, 
+TRACK_24.WAV, 
+TRACK_25.WAV, 
+TRACK_57.WAV, 
+TRACK_58.WAV, 
+TRACK_59.WAV, 
+TRACK_60.WAV
+
+   
+```   
+   
 ## Burning
 - cdi image at release page not include game data.
 - cdi
